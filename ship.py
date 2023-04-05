@@ -16,6 +16,7 @@ class Ship(Sprite):
 
         # Start each new ship at the bottom center of the screen.
         self.rect.centerx = self.screen_rect.centerx
+        self.rect.centery = 0 # Value position y of the ship.
         self.rect.bottom = self.screen_rect.bottom
         # Store a decimal value for the ship's center.
         self.center = float(self.rect.centerx)

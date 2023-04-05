@@ -11,6 +11,12 @@ def check_keydown_events(event, ship, game_settings, screen, bullets):
 
     elif event.key == pygame.K_LEFT:
         ship.moving_left = True
+        
+    elif event.key == pygame.K_UP:
+        ship.moving_forward = True
+        
+    elif event.key == pygame.K_DOWN:
+        ship.moving_downward = True
 
     elif event.key == pygame.K_SPACE:
         fire_bullets(game_settings, screen, bullets,  ship)
@@ -26,6 +32,12 @@ def check_keyup_events(ship):
 
     if ship.moving_left:
         ship.moving_left = False
+        
+    if ship.moving_forward:
+        ship.moving_forward = False
+        
+    if ship.moving_downward:
+        ship.moving_downward = False
 
 
 def check_events(ship, game_settings, screen, bullets, play_button, stats, aliens, sb):

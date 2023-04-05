@@ -22,6 +22,8 @@ class Ship(Sprite):
         # Movement flag.
         self.moving_right = False
         self.moving_left = False
+        self.moving_forward = False
+        self.moving_downward = False
 
     def update(self):
         """Update the ship's position based on the movement flag."""
@@ -29,6 +31,10 @@ class Ship(Sprite):
             self.center += self.game_settings.ship_speed_factor
         if self.moving_left is True and self.rect.left > 0:
             self.center -= self.game_settings.ship_speed_factor
+        if self.moving_forward is True and self.rect.top > self.screen_rect.top: # Update movement up and down
+            self.centery -= self.game_settings.ship_speed_factor
+        if self.moving_downward is True and self.rect.bottom < self.screen_rect.bottom:
+            self.centery += self.game_settings.ship_speed_factor
 
         # Update rect object from self.center
         self.rect.centerx = self.center
@@ -40,6 +46,7 @@ class Ship(Sprite):
     def center_ship(self):
         """Center the ship on the screen."""
         self.center = self.screen_rect.centerx
+        self.centery = 570 # Edit base position of ship.
 
 
 if __name__ == '__main__':

@@ -39,6 +39,7 @@ class Ship(Sprite):
 
         # Update rect object from self.center
         self.rect.centerx = self.center
+        self.rect.centery = self.centery #adding position-y
 
     def blitme(self):
         """Draw the ship at its current location."""
